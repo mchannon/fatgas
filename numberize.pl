@@ -3,8 +3,6 @@
 use strict;
 use warnings;
 
-my $offset = 13;
-
 
 foreach( @ARGV ){
 
@@ -30,7 +28,7 @@ print ("\n");
   while ($result != -1) {
 
 #    print "Found $char at $result\n";
-	push @indices, $result - 10;
+	push @indices, $result - 11;
 
     $offset = $result + 1;
     $result = index($lines[0], $char, $offset);
@@ -44,10 +42,10 @@ my @newValues;
 my @oldLengths;
 
 foreach (@indices) {
-	my $xn = substr( $lines[0], $_, 10 );
+	my $xn = substr( $lines[0], $_, 11 );
 #	print $xn;
 #	print(" ");
-	my $xr = substr( $lines[0], $_, 10 );
+	my $xr = substr( $lines[0], $_, 11 );
 	$xr =~ s/[^0-9]//g;
 	my $ni = index( $xn, $xr );
 #	print ("$xr ");
@@ -62,7 +60,7 @@ foreach (@indices) {
 foreach (@newIndices)
 {
 	print ( "$_ " );
-	my $xn = substr( $lines[0], $_, 10 );
+	my $xn = substr( $lines[0], $_, 11 );
 	print ( "$xn " );
 	$xn =~ s/[^0-9]//g;
 	print $xn;
@@ -70,9 +68,9 @@ foreach (@newIndices)
 	print length $xn;
 	print("L ");
 	push( @oldLengths, length $xn );
-	print $xn + 13;
+	print $xn + 16;
 	print(" ");
-	$xn = lc(sprintf( "<a href=\"index.html#pf%X\">%d</a>", $xn + 13, $xn ));
+	$xn = lc(sprintf( "<a href=\"index.html#pf%X\">%d</a>", $xn + 16, $xn ));
 	print $xn;
 	push( @newValues, $xn );
 	print ("\n");
