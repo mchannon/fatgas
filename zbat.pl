@@ -21,9 +21,6 @@ foreach (@files) {
 		$_ =~ s/  ª/<A HREF="index.html#pf$pgno">ToC<\/A>/g;
 		$_ =~ s/ª  /<A HREF="index.html#pf$pgno">ToC<\/A>/g;
 		$_ =~ s/ª/<A HREF="index.html#pf$pgno">ToC<\/A>/g;
-#		$_ =~ s/  ª/<A HREF="index.html#pf3">ToC<\/A>/g;
-#		$_ =~ s/ª  /<A HREF="index.html#pf3">ToC<\/A>/g;
-#		$_ =~ s/ª/<A HREF="index.html#pf3">ToC<\/A>/g;
 		push (@newlines, $_ );
 	}
 
