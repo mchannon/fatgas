@@ -14,11 +14,13 @@ foreach (@files) {
 
 	my @newlines;
 	foreach( @lines ) {
+		$_ =~ s/  ª/<A HREF="index.html#pf3">ToC<\/A>/g;
+		$_ =~ s/ª  /<A HREF="index.html#pf3">ToC<\/A>/g;
 		$_ =~ s/ª/<A HREF="index.html#pf3">ToC<\/A>/g;
 		push (@newlines, $_ );
 	}
 
-	open( my $file, ">", $_) || die "File no found";
+	open( $file, ">", $_) || die "File no found";
 	print $file @newlines;
 	close( $file );
 }
@@ -41,3 +43,6 @@ system "perl numberize.pl index13.page";
 system "perl numberize.pl index14.page";
 system "perl numberize.pl index15.page";
 
+foreach (@files) {
+	system "perl addads.pl $_";
+}
