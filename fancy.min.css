@@ -32,6 +32,7 @@
 
 .brbr {
             display: block; /* makes it have a width */
+		margin: 0px 0;
             content: ""; /* clears default height */
             margin-top: 0; /* change this to whatever height you want it */
 }
