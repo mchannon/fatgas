@@ -54,8 +54,6 @@ foreach (@indices) {
 #	print (" $_ \n");
 }
 
-#print (@newIndices);
-
 
 foreach (@newIndices)
 {
@@ -84,7 +82,11 @@ for (my $i = 0; $i < scalar( @rIndices ); $i++) {
 	substr( $lines[0], $rIndices[ $i ], $rLengths[ $i ] ) = $rValues[ $i ];
 }
 
-print $lines[0];
+#print $lines[0];
+
+open(my $fileh, ">", $_) || die "File not found";
+print $fileh "$lines[0]";
+close $fileh;
 
 }
 
