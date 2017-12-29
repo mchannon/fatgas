@@ -12,11 +12,18 @@ foreach (@files) {
 	my @lines = <$file>;
 	close($file);
 
+	my @fileno = split( 'index', $_ );
+	my @fileno2 = split( '.page', $fileno[ 1 ] );
+	my $pgno = int($fileno2[ 0 ] / 50) + 3;
+
 	my @newlines;
 	foreach( @lines ) {
-		$_ =~ s/  ª/<A HREF="index.html#pf3">ToC<\/A>/g;
-		$_ =~ s/ª  /<A HREF="index.html#pf3">ToC<\/A>/g;
-		$_ =~ s/ª/<A HREF="index.html#pf3">ToC<\/A>/g;
+		$_ =~ s/  ª/<A HREF="index.html#pf$pgno">ToC<\/A>/g;
+		$_ =~ s/ª  /<A HREF="index.html#pf$pgno">ToC<\/A>/g;
+		$_ =~ s/ª/<A HREF="index.html#pf$pgno">ToC<\/A>/g;
+#		$_ =~ s/  ª/<A HREF="index.html#pf3">ToC<\/A>/g;
+#		$_ =~ s/ª  /<A HREF="index.html#pf3">ToC<\/A>/g;
+#		$_ =~ s/ª/<A HREF="index.html#pf3">ToC<\/A>/g;
 		push (@newlines, $_ );
 	}
 
@@ -24,10 +31,6 @@ foreach (@files) {
 	print $file @newlines;
 	close( $file );
 }
-
-#system "sed -i '' 's/NON                          ª/NON                      <A HREF=\"index.html#pf3\">ToC<\/A>/' *.page";
-#system "sed -i '' 's/ª  \ \ \ /<A HREF=\"index.html#pf3\">ToC<\/A>/' *.page";
-#system "sed -i '' 's/ª/<A HREF=\"index.html#pf3\">ToC<\/A>/' *.page";
 
 system "perl numberize.pl index3.page";
 system "perl numberize.pl index4.page";
