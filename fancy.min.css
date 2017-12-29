@@ -30,7 +30,7 @@
      100% { opacity: 1.0; }
      }
 
-br {
+.brbr {
             display: block; /* makes it have a width */
             content: ""; /* clears default height */
             margin-top: 0; /* change this to whatever height you want it */
