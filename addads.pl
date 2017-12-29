@@ -48,7 +48,7 @@ push( @out, "align=\"right\" " );
 push( @out, "/></a></td></tr></table>" );
 
 
-push( @out, '</div><div class=\"pi\"' );
+push( @out, '</div><div class="pi"' );
 push( @out, $sps[ 1 ] );
 
 
