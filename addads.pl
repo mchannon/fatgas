@@ -31,10 +31,14 @@ push( @out, "<a href=\"http://www.dpbolvw.net/click-8524921-12588112\" target=\"
 push( @out, "<img src=\"http://www.ftjcfx.com/image-8524921-12588112\" width=\"160\" height=\"600\" alt=\"\" border=\"0\" ");
 if ( $fileno2[ 0 ] % 2 == 0 ) {
 push( @out, "align=\"right\" " );
+} else {
+push( @out, "style=\"margin: -4px 0px\" " );
 }
 push( @out, "></a><a href=\"http://www.kqzyfj.com/click-8524921-10833132\" target=\"_top\"><img src=\"http://www.ftjcfx.com/image-8524921-10833132\" width=\"160\" height=\"600\" alt=\"\" border=\"0\" " );
 if ( $fileno2[ 0 ] % 2 == 0 ) {
 push( @out, "align=\"right\" " );
+} else {
+push( @out, "style=\"margin: -4px 0px\" " );
 }
 push( @out, "\n/></a></td></tr><tr><td><a href=\"http://www.dpbolvw.net/click-8524921-10833150\" target=\"_top\">" );
 push( @out, "<img src=\"http://www.lduhtrp.net/image-8524921-10833150\" width=\"160\" height=\"600\" alt=\"\" border=\"0\"" );
