@@ -14,7 +14,7 @@ foreach (@files) {
 
 	my @newlines;
 	foreach( @lines ) {
-		$_ =~ s/NON                          ª/NON                      <A HREF=\"index.html#pf3\">ToC<\/A>/g;
+		$_ =~ s/ª/<A HREF="index.html#pf3">ToC<\/A>/g;
 		push (@newlines, $_ );
 	}
 
