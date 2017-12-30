@@ -56,12 +56,12 @@ foreach (@files) {
 my $lines = read_file('index.css');
 
 my @thirds = split( '.x1{', $lines );
-my $newlines = join( '', $thirds[0], ".xff3{left:50px;}\n", ".xff4{left:300px;}\n", '.x1{', $thirds[1], ".xff3{left:50pt;}\n", ".xff4{left:300pt;}\n", '.x1{', $thirds[2] );
+my $newlines = join( '', $thirds[0], ".xff3{left:50px;}\n", ".xff4{left:360px;}\n", '.x1{', $thirds[1], ".xff3{left:50pt;}\n", ".xff4{left:360pt;}\n", '.x1{', $thirds[2] );
 
 #pop @lines;
 
 #push( @lines, ".xff3{left:50pt;}\n" );
-#push( @lines, ".xff4{left:300pt;}\n" );
+#push( @lines, ".xff4{left:360pt;}\n" );
 #push( @lines, "}\n" );
 
 open( my $file, ">", "index.css" ) || die "File no found";
