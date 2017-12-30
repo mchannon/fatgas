@@ -43,15 +43,16 @@ my @oldLengths;
 
 foreach (@indices) {
 	my $xn = substr( $lines[0], $_, 11 );
-#	print $xn;
-#	print(" ");
+	print("M: ");
+	print $xn;
+	print(" ");
 	my $xr = substr( $lines[0], $_, 11 );
 	$xr =~ s/[^0-9]//g;
 	my $ni = index( $xn, $xr );
-#	print ("$xr ");
-#	print ( index( $xn, $xr ) );
+	print ("$xr ");
+	print ( index( $xn, $xr ) );
 	push( @newIndices, $_ + $ni );
-#	print (" $_ \n");
+	print (" $_ \n");
 }
 
 

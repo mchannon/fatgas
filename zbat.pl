@@ -92,13 +92,13 @@ foreach (@files) {
 
 	my $excerpt = join( '', '<div' , $lastDiv , 'ToC', $slashDiv, '/div>' );
 
-	print "EX: $excerpt\n";
+#	print "EX: $excerpt\n";
 	my @fixx = split( 'x', $excerpt );
-	print "PO: $fixx[1]\n";
+#	print "PO: $fixx[1]\n";
 	my @splitfixx = split( 'h', $fixx[ 1 ] );
-	print "PY: ";
-	print join('h', @splitfixx );
-	print "\n";
+#	print "PY: ";
+#	print join('h', @splitfixx );
+#	print "\n";
 
 	shift @splitfixx;
 	my $tempFixx = $fixx[ 0 ];
@@ -112,28 +112,28 @@ foreach (@files) {
 
 	if ( $fileno2[ 0 ] % 2 == 0 ) {
 		$excerpt2 = join( '', $tempFixx , 'xff3 ' , join( 'h', @splitfixx ) , 'x' , join( 'x', @fixx ) );
-	print "EX2: $excerpt2\n";
+#	print "EX2: $excerpt2\n";
 	} else {
 		$excerpt2 = join( '', $tempFixx , 'xff4 ' , join( 'h', @splitfixx ) , 'x' , join( 'x', @fixx ) );
-	print "EX2: $excerpt2\n";
+#	print "EX2: $excerpt2\n";
 	}
 
 
 	if ( $xog == 2 )
 	{
 		my $finished = join( '', join( '<div', @divvy), $excerpt2, join( '/div>', @slash) );				
-		print "FI : $finished\n";
-		print "LI : $lines[0]\n";
+#		print "FI : $finished\n";
+#		print "LI : $lines[0]\n";
         	open( my $zfile, ">", $_) || die "File no found";
         	print $zfile $finished;
 		if ( $lines[1] )
 {
-		print "LI1 : $lines[1]\n";
+#		print "LI1 : $lines[1]\n";
 		print $zfile $lines[1];
 }
 		if ( $lines[2] )
 {
-		print "LI2 : $lines[2]\n";
+#		print "LI2 : $lines[2]\n";
 		print $zfile $lines[2];
 }
         	close( $zfile );	
@@ -146,12 +146,12 @@ foreach (@files) {
                 print $zfile $finished;
                 if ( $lines[1] )
 {
-                print "LI1 : $lines[1]\n";
+ #               print "LI1 : $lines[1]\n";
                 print $zfile $lines[1];
 }
                 if ( $lines[2] )
 {
-                print "LI2 : $lines[2]\n";
+  #              print "LI2 : $lines[2]\n";
                 print $zfile $lines[2];
 }
                 close( $zfile );
