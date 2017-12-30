@@ -44,7 +44,11 @@ push( @out, "\n/></a></td></tr><tr><td>" );
 
 open( my $ad, '<', 'ca4a.160x600' );
 my $adData = <$ad>;
-
+my @adchunks;
+if ( $fileno2[ 0 ] % 2 == 0 ) {
+	my @adchunks = split( 'width=', $adData );
+	$adData = join( '', $adchunks[ 0 ], 'align=\"right\" ', 'width=', $adchunks[ 1 ] );
+}
 push( @out, $adData );
 
 close( $ad );
