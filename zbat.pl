@@ -46,3 +46,71 @@ system "perl numberize.pl index15.page";
 foreach (@files) {
 	system "perl addads.pl $_";
 }
+
+open ( my $file, "<", "index.css" ) || die "index not found";
+my @lines = <$file>;
+close($file);
+
+pop @lines;
+
+push( @lines, ".xue{left:22pt;}\n" );
+push( @lines, ".xuo{left:480pt;}\n" );
+push( @lines, "}\n" );
+
+open( $file, ">", "index.css" ) || die "File no found";
+print $file @lines;
+close( $file );
+
+
+foreach (@files) {
+
+        open(my $file, "<", $_) || die "File not found";
+        my @lines = <$file>;
+        close($file);
+
+        my @fileno = split( 'ToC', $lines[0] );
+
+	my @divvy = split( '<div', $fileno[ 0 ] );
+	my @slash = split( '/div>', $divvy[ 1 ] );
+
+	my $lastDiv = pop @divvy;
+	my $slashDiv = shift @slash;
+
+	my $cleanup = join( '', join( '<div', @divvy), join( '/div>', @slash ) );
+
+	my @thirds = split( '<div class=\"c x1 y1 w0 h2\">', $lines[0] );
+	my $xog = 0 + @thirds;
+
+	my $excerpt = join( '', '<div' , $lastDiv , 'ToC' , $slashDiv , '/div>');
+
+#	print "EX: $excerpt\n";
+	my @fixx = split( 'x', $excerpt );
+#	print "PO: $fixx[1]\n";
+	my @splitfixx = split( 'h', $fixx[ 1 ] );
+#	print "PY: ";
+#	print join('h', @splitfixx );
+#	print "\n";
+
+	shift @splitfixx;
+	my $tempFixx = $fixx[ 0 ];
+	shift @fixx;
+	shift @fixx;
+
+
+	$excerpt = join( '', $tempFixx , 'xue ' , join( 'h', @splitfixx ) , 'x' , join( 'x', @fixx ) );
+#	print "EX: $excerpt\n";
+
+	if ( $xog == 2 )
+	{
+		my $finished = join( '', '<div', @divvy, $excerpt, @slash );				
+		#print "FI : $finished\n";
+		#print "LI : $lines[0]\n";
+        	open( my $zfile, ">", $_) || die "File no found";
+        	print $zfile $finished;
+        	close( $zfile );	
+	} else 
+	{
+
+
+	}
+}
