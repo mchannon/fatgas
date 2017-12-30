@@ -47,7 +47,7 @@ my $adData = <$ad>;
 my @adchunks;
 if ( $fileno2[ 0 ] % 2 == 0 ) {
 	my @adchunks = split( 'width=', $adData );
-	$adData = join( '', $adchunks[ 0 ], 'align=\"right\" ', 'width=', $adchunks[ 1 ] );
+	$adData = join( '', $adchunks[ 0 ], 'align="right" ', 'width=', $adchunks[ 1 ] );
 }
 push( @out, $adData );
 
