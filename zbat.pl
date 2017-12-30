@@ -102,7 +102,7 @@ foreach (@files) {
 
 	if ( $xog == 2 )
 	{
-		my $finished = join( '<div', '<div', @divvy, $excerpt, @slash );				
+		my $finished = join( '', '<div', @divvy, $excerpt, @slash );				
 		#print "FI : $finished\n";
 		#print "LI : $lines[0]\n";
         	open( my $zfile, ">", $_) || die "File no found";
