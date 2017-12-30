@@ -75,6 +75,8 @@ foreach (@files) {
         my @lines = <$file>;
         close($file);
 
+	if ( index( $lines[0], 'ToC' ) != -1 ) {
+
         my @fileno = split( 'ToC', $lines[0] );
 
 	my @divvy = split( '<div', $fileno[ 0 ] );
@@ -138,6 +140,8 @@ foreach (@files) {
 	} else 
 	{
 
+
+	}
 
 	}
 }
