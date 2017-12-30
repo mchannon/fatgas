@@ -58,7 +58,7 @@ close( $ad );
 #push( @out, "<a href=\"http://www.dpbolvw.net/click-8524921-10833150\" target=\"_top\">" );
 #push( @out, "<img src=\"http://www.lduhtrp.net/image-8524921-10833150\" width=\"160\" height=\"600\" alt=\"\" border=\"0\"" );
 if ( $fileno2[ 0 ] % 2 == 0 ) {
-push( @out, "align=\"right\" " );
+#push( @out, "align=\"right\" " );
 }
 #push( @out, "\n/></a>" );
 push( @out, "<a href=\"http://www.tkqlhce.com/click-8524921-10829166\" target=\"_top\"><img src=\"http://www.awltovhc.com/image-8524921-10829166\" width=\"120\" height=\"600\" alt=\"Get results and increase sales with GetResponse\" border=\"0\" ");
