@@ -139,8 +139,22 @@ foreach (@files) {
         	close( $zfile );	
 	} else 
 	{
-
-
+                my $excerpted = join( '', join( '<div', @divvy), join( '/div>', @slash) );
+		my @newThirds = split( '<div class=\"c x1 y1 w0 h2\">', $excerpted );
+		my $finished = join( '', $newThirds[0], '<div class=\"c x1 y1 w0 h2\">', $newThirds[1], '<div class=\"c x1 y1 w0 h2\">', $excerpt2, $newThirds[2] );
+                open( my $zfile, ">", $_) || die "File no found";
+                print $zfile $finished;
+                if ( $lines[1] )
+{
+                print "LI1 : $lines[1]\n";
+                print $zfile $lines[1];
+}
+                if ( $lines[2] )
+{
+                print "LI2 : $lines[2]\n";
+                print $zfile $lines[2];
+}
+                close( $zfile );
 	}
 
 	}
