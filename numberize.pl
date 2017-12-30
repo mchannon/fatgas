@@ -28,7 +28,7 @@ print ("\n");
   while ($result != -1) {
 
 #    print "Found $char at $result\n";
-	push @indices, $result - 11;
+	push @indices, $result - 13;
 
     $offset = $result + 1;
     $result = index($lines[0], $char, $offset);
@@ -42,10 +42,10 @@ my @newValues;
 my @oldLengths;
 
 foreach (@indices) {
-	my $xn = substr( $lines[0], $_, 11 );
+	my $xn = substr( $lines[0], $_, 13 );
 #	print $xn;
 #	print(" ");
-	my $xr = substr( $lines[0], $_, 11 );
+	my $xr = substr( $lines[0], $_, 13 );
 	$xr =~ s/[^0-9]//g;
 	my $ni = index( $xn, $xr );
 #	print ("$xr ");
@@ -58,7 +58,7 @@ foreach (@indices) {
 foreach (@newIndices)
 {
 	print ( "$_ " );
-	my $xn = substr( $lines[0], $_, 11 );
+	my $xn = substr( $lines[0], $_, 13 );
 	print ( "$xn " );
 	$xn =~ s/[^0-9]//g;
 	print $xn;
