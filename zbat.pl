@@ -53,8 +53,8 @@ close($file);
 
 pop @lines;
 
-push( @lines, ".xue{left:22pt;}\n" );
-push( @lines, ".xuo{left:480pt;}\n" );
+push( @lines, ".xff3{left:82pt;}\n" );
+push( @lines, ".xff4{left:480pt;}\n" );
 push( @lines, "}\n" );
 
 open( $file, ">", "index.css" ) || die "File no found";
@@ -96,9 +96,19 @@ foreach (@files) {
 	shift @fixx;
 	shift @fixx;
 
+        my @filenor = split( 'index', $_ );
+        my @fileno2 = split( '.page', $filenor[ 1 ] );
 
-	my $excerpt2 = join( '', $tempFixx , 'xue ' , join( 'h', @splitfixx ) , 'x' , join( 'x', @fixx ) );
+	my $excerpt2 = "";;
+
+	if ( $fileno2[ 0 ] % 2 == 0 ) {
+		$excerpt2 = join( '', $tempFixx , 'xff3 ' , join( 'h', @splitfixx ) , 'x' , join( 'x', @fixx ) );
 	print "EX2: $excerpt2\n";
+	} else {
+		$excerpt2 = join( '', $tempFixx , 'xff4 ' , join( 'h', @splitfixx ) , 'x' , join( 'x', @fixx ) );
+	print "EX2: $excerpt2\n";
+	}
+
 
 	if ( $xog == 2 )
 	{
