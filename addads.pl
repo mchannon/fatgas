@@ -55,7 +55,8 @@ close( $ad );
 if ( $fileno2[ 0 ] % 2 == 0 ) {
 push( @out, "align=\"right\" " );
 }
-push( @out, "\n/></a><a href=\"http://www.tkqlhce.com/click-8524921-10829166\" target=\"_top\"><img src=\"http://www.awltovhc.com/image-8524921-10829166\" width=\"120\" height=\"600\" alt=\"Get results and increase sales with GetResponse\" border=\"0\" ");
+#push( @out, "\n/></a>" );
+push( @out, "<a href=\"http://www.tkqlhce.com/click-8524921-10829166\" target=\"_top\"><img src=\"http://www.awltovhc.com/image-8524921-10829166\" width=\"120\" height=\"600\" alt=\"Get results and increase sales with GetResponse\" border=\"0\" ");
 if ( $fileno2[ 0 ] % 2 == 0 ) {
 push( @out, "align=\"right\" " );
 }
