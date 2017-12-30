@@ -3,6 +3,8 @@
 use strict;
 use warnings;
 
+use File::Slurp;
+
 system "pdf2htmlEX /Users/jrrr/Desktop/index.pdf  --zoom 2 --embed cfi --split-pages 1 -l 147";
 
 my @files = glob("*.page");
@@ -47,18 +49,23 @@ foreach (@files) {
 	system "perl addads.pl $_";
 }
 
-open ( my $file, "<", "index.css" ) || die "index not found";
-my @lines = <$file>;
-close($file);
+#open ( my $file, "<", "index.css" ) || die "index not found";
+#my @lines = <$file>;
+#close($file);
 
-pop @lines;
+my $lines = read_file('index.css');
 
-push( @lines, ".xff3{left:82pt;}\n" );
-push( @lines, ".xff4{left:480pt;}\n" );
-push( @lines, "}\n" );
+my @thirds = split( '.x1{', $lines );
+my $newlines = join( '', $thirds[0], ".xff3{left:82px;}\n", ".xff4{left:480px;}\n", '.x1{', $thirds[1], ".xff3{left:82pt;}\n", ".xff4{left:480pt;}\n", '.x1{', $thirds[2] );
 
-open( $file, ">", "index.css" ) || die "File no found";
-print $file @lines;
+#pop @lines;
+
+#push( @lines, ".xff3{left:82pt;}\n" );
+#push( @lines, ".xff4{left:480pt;}\n" );
+#push( @lines, "}\n" );
+
+open( my $file, ">", "index.css" ) || die "File no found";
+print $file $newlines;
 close( $file );
 
 
