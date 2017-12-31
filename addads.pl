@@ -83,7 +83,7 @@ if ( $count < 4 )
 {
 	push( @out, '</div><div class="pi"' );
 } else {
-	push( @out, '</div></div>div class="pi"' );
+	push( @out, '</div></div><div class="pi"' );
 }
 
 push( @out, $sps[ 1 ] );
