@@ -71,14 +71,14 @@ my $ad3 = ad( "300x250" );
 open( my $ad, '<', 'amaz.160x600' );
 my $adData = <$ad>;
 chomp( $adData );
-chop( $adData );
+#chop( $adData );
 my @adchunks;
 
 if ( $isEven ) {
 #if ( $fileno2[ 0 ] % 2 == 0 ) {
 	my @adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
-	$adData = join( '', $firstchunk, 'align="right"\n ', 'width=', join( 'width=', @adchunks ) );
+	$adData = join( '', $firstchunk, 'align="right"\n', 'width=', join( 'width=', @adchunks ) );
 }
 push( @out, $adData );
 
