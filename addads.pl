@@ -14,7 +14,19 @@ open(my $file, "<", $_) || die "File not found";
 my @lines = <$file>;
 close($file);
 
-my @sps = split( '</div><div class=\"pi\"', $lines[ 0 ] );
+
+my $count = 0;
+while ( $lines[0] =~ /<\/div>/g) { $count++ }
+print "num divs: $count\n";
+
+my @sps;
+
+if ( $count < 4 )
+{
+	@sps = split( '</div><div class=\"pi\"', $lines[ 0 ] );
+} else {
+	@sps = split( '</div></div><div class=\"pi\"', $lines[ 0 ] );
+}
 
 my @out;
 
@@ -67,10 +79,14 @@ push( @out, "align=\"right\" " );
 }
 push( @out, "/></a></td></tr></table>" );
 
+if ( $count < 4 )
+{
+	push( @out, '</div><div class="pi"' );
+} else {
+	push( @out, '</div></div>div class="pi"' );
+}
 
-push( @out, '</div><div class="pi"' );
 push( @out, $sps[ 1 ] );
-
 
 open(my $fileh, ">", $_) || die "File not found";
 print $fileh "@out";
