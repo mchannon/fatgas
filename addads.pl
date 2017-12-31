@@ -55,7 +55,9 @@ push( @out, "style=\"margin: -4px 0px\" " );
 
 my $ad2 = ad( "120x600" );
 
-push( @out, "></a><a href=\"http://www.kqzyfj.com/click-8524921-10833132\" target=\"_top\"><img src=\"http://www.ftjcfx.com/image-8524921-10833132\" width=\"160\" height=\"600\" alt=\"\" border=\"0\" " );
+push( @out, "></a>");
+push( @out, "</td><td>");
+push( @out, "<a href=\"http://www.kqzyfj.com/click-8524921-10833132\" target=\"_top\"><img src=\"http://www.ftjcfx.com/image-8524921-10833132\" width=\"160\" height=\"600\" alt=\"\" border=\"0\" " );
 
 if ( $isEven ) {
 push( @out, "align=\"right\" " );
