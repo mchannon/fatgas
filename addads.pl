@@ -92,6 +92,7 @@ if ( $isEven ) {
 
 my $ad4 = ad( "300x600" );
 
+push( @out, "</td><td>" );
 
 push( @out, "<a href=\"http://www.tkqlhce.com/click-8524921-10829166\" target=\"_top\"><img src=\"http://www.awltovhc.com/image-8524921-10829166\" width=\"120\" height=\"600\" alt=\"Get results and increase sales with GetResponse\" border=\"0\" ");
 if ( $isEven ) {
