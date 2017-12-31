@@ -60,7 +60,7 @@ my @adchunks;
 if ( $fileno2[ 0 ] % 2 == 0 ) {
 	my @adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
-	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
+	$adData = join( '', $firstchunk, 'align="right"\n ', 'width=', join( 'width=', @adchunks ) );
 }
 push( @out, $adData );
 
