@@ -38,7 +38,6 @@ push( @out, $sps[ 0 ] );
 push( @out, "<table bgcolor=\"#939393\" border=\"0\" " );
 
 if ( $isEven ) {
-#if ( $fileno2[ 0 ] % 2 == 0 ) {
 push( @out, "align=\"right\" " );
 }
 push( @out, " style=\"margin: 0px -3px 0px -5px\" cellpadding=\"0\" cellspacing=\"0\"><tr><td>" );
@@ -48,7 +47,6 @@ push( @out, "<a href=\"http://www.dpbolvw.net/click-8524921-12588112\" target=\"
 push( @out, "<img src=\"http://www.ftjcfx.com/image-8524921-12588112\" width=\"160\" height=\"600\" alt=\"\" border=\"0\" ");
 
 if ( $isEven ) {
-#if ( $fileno2[ 0 ] % 2 == 0 ) {
 push( @out, "align=\"right\" " );
 } else {
 push( @out, "style=\"margin: -4px 0px\" " );
@@ -60,7 +58,6 @@ my $ad2 = ad( "120x600" );
 push( @out, "></a><a href=\"http://www.kqzyfj.com/click-8524921-10833132\" target=\"_top\"><img src=\"http://www.ftjcfx.com/image-8524921-10833132\" width=\"160\" height=\"600\" alt=\"\" border=\"0\" " );
 
 if ( $isEven ) {
-#if ( $fileno2[ 0 ] % 2 == 0 ) {
 push( @out, "align=\"right\" " );
 } else {
 push( @out, "style=\"margin: -4px 0px\" " );
@@ -75,10 +72,9 @@ chomp( $adData );
 my @adchunks;
 
 if ( $isEven ) {
-#if ( $fileno2[ 0 ] % 2 == 0 ) {
 	my @adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
-	$adData = join( '', $firstchunk, 'align="right"\n', 'width=', join( 'width=', @adchunks ) );
+	$adData = join( '', $firstchunk, 'align="right"', "\n", 'width=', join( 'width=', @adchunks ) );
 }
 push( @out, $adData );
 
@@ -88,7 +84,6 @@ close( $ad );
 #push( @out, "<a href=\"http://www.dpbolvw.net/click-8524921-10833150\" target=\"_top\">" );
 #push( @out, "<img src=\"http://www.lduhtrp.net/image-8524921-10833150\" width=\"160\" height=\"600\" alt=\"\" border=\"0\"" );
 if ( $isEven ) {
-#if ( $fileno2[ 0 ] % 2 == 0 ) {
 #push( @out, "align=\"right\" " );
 }
 #push( @out, "\n/></a>" );
@@ -98,7 +93,6 @@ my $ad4 = ad( "300x600" );
 
 push( @out, "<a href=\"http://www.tkqlhce.com/click-8524921-10829166\" target=\"_top\"><img src=\"http://www.awltovhc.com/image-8524921-10829166\" width=\"120\" height=\"600\" alt=\"Get results and increase sales with GetResponse\" border=\"0\" ");
 if ( $isEven ) {
-#if ( $fileno2[ 0 ] % 2 == 0 ) {
 push( @out, "align=\"right\" " );
 }
 push( @out, "/></a></td></tr></table>" );
