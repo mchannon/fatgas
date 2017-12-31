@@ -56,6 +56,7 @@ push( @out, "\n/></a></td></tr><tr><td>" );
 
 open( my $ad, '<', 'ca4a.160x600' );
 my $adData = <$ad>;
+chomp( $adData );
 my @adchunks;
 if ( $fileno2[ 0 ] % 2 == 0 ) {
 	my @adchunks = split( 'width=', $adData );
