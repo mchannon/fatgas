@@ -61,26 +61,43 @@ my $ad2 = ad( "120x600" );
 
 push( @out, "></a>");
 push( @out, "</td><td>");
-push( @out, "<a href=\"http://www.kqzyfj.com/click-8524921-10833132\" target=\"_top\"><img src=\"http://www.ftjcfx.com/image-8524921-10833132\" width=\"160\" height=\"600\" alt=\"\" border=\"0\" " );
-
-if ( $isEven ) {
-push( @out, "align=\"right\" " );
-} else {
-push( @out, "style=\"margin: -4px 0px\" " );
-}
-push( @out, "\n/></a></td></tr><tr><td>" );
 
 $repeated = 1;
 while ( $repeated == 1 ) {
 	$adData = ad( "160x600" );
+	$repeated = 0;
 
-	my @matches = grep { /^{$adData}/ } @adssofar;
+	foreach ( @adssofar )
+	{
+		if ( $_ eq $adData )
+		{
+		        print "MATCH!\n";
+			$repeated = 1;
+		}
+	}
 
+	if ( $repeated == 0 ) {
+		push( @adssofar, $adData );
+	}
+}
 
-	if ( @matches ) {
-	} else {
+push( @out, "</td></tr><tr><td>" );
 
-		$repeated = 0;
+$repeated = 1;
+while ( $repeated == 1 ) {
+	$adData = ad( "160x600" );
+	$repeated = 0;
+
+	foreach ( @adssofar )
+	{
+		if ( $_ eq $adData )
+		{
+		        print "MATCH!\n";
+			$repeated = 1;
+		}
+	}
+
+	if ( $repeated == 0 ) {
 		push( @adssofar, $adData );
 	}
 }
@@ -97,14 +114,18 @@ push( @out, "</td><td>" );
 $repeated = 1;
 while ( $repeated == 1 ) {
 	$adData = ad( "160x600" );
+	$repeated = 0;
 
-	if ( $adssofar[0] eq $adData )
-{
-	print "MATCH!\n";
+	foreach ( @adssofar )
+	{
+		if ( $_ eq $adData )
+		{
+		        print "MATCH!\n";
+			$repeated = 1;
+		}
+	}
 
-	} else {
-
-		$repeated = 0;
+	if ( $repeated == 0 ) {
 		push( @adssofar, $adData );
 	}
 }
