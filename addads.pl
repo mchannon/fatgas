@@ -35,6 +35,8 @@ my @out;
 push( @out, $sps[ 0 ] );
 
 #insert ad code
+my @adssofar;
+
 push( @out, "<table bgcolor=\"#939393\" border=\"0\" " );
 
 if ( $isEven ) {
@@ -65,16 +67,20 @@ push( @out, "align=\"right\" " );
 push( @out, "style=\"margin: -4px 0px\" " );
 }
 push( @out, "\n/></a></td></tr><tr><td>" );
-my $adData = ad( "160x600" );
 
-#open( my $ad, '<', 'amaz.160x600' );
-#my $adData = <$ad>;
-#chomp( $adData );
-#chop( $adData );
+my $repeated = 1;
+my $adData;
+while ( $repeated == 1 ) {
+	$adData = ad( "160x600" );
+	if ( index( @adssofar, $adData ) == -1 )
+	{
+		$repeated = 0;
+	}
+}
 my @adchunks;
 
 if ( $isEven ) {
-	my @adchunks = split( 'width=', $adData );
+	@adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right"', "\n", 'width=', join( 'width=', @adchunks ) );
 }
