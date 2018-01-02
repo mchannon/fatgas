@@ -47,21 +47,6 @@ push( @out, "align=\"right\" " );
 }
 push( @out, " style=\"margin: 0px -3px 0px -5px\" cellpadding=\"0\" cellspacing=\"0\"><tr><td>" );
 
-my $ad1 = ad( "160x600" );
-push( @out, "<a href=\"http://www.dpbolvw.net/click-8524921-12588112\" target=\"_top\">" );
-push( @out, "<img src=\"http://www.ftjcfx.com/image-8524921-12588112\" width=\"160\" height=\"600\" alt=\"\" border=\"0\" ");
-
-if ( $isEven ) {
-push( @out, "align=\"right\" " );
-} else {
-push( @out, "style=\"margin: -4px 0px\" " );
-}
-
-my $ad2 = ad( "120x600" );
-
-push( @out, "></a>");
-push( @out, "</td><td>");
-
 $repeated = 1;
 while ( $repeated == 1 ) {
 	$adData = ad( "160x600" );
@@ -80,34 +65,11 @@ while ( $repeated == 1 ) {
 		push( @adssofar, $adData );
 	}
 }
-
-push( @out, "</td></tr><tr><td>" );
-
-$repeated = 1;
-while ( $repeated == 1 ) {
-	$adData = ad( "160x600" );
-	$repeated = 0;
-
-	foreach ( @adssofar )
-	{
-		if ( $_ eq $adData )
-		{
-		        print "MATCH!\n";
-			$repeated = 1;
-		}
-	}
-
-	if ( $repeated == 0 ) {
-		push( @adssofar, $adData );
-	}
-}
-
 if ( $isEven ) {
 	@adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
 }
-#print "ad data 1: $adData\n";
 push( @out, $adData );
 push( @out, "</td><td>" );
 
@@ -129,14 +91,63 @@ while ( $repeated == 1 ) {
 		push( @adssofar, $adData );
 	}
 }
-
 if ( $isEven ) {
 	@adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
 }
-#print "ad data 2: $adData\n";
+push( @out, $adData );
+push( @out, "</td></tr><tr><td>" );
 
+$repeated = 1;
+while ( $repeated == 1 ) {
+	$adData = ad( "160x600" );
+	$repeated = 0;
+
+	foreach ( @adssofar )
+	{
+		if ( $_ eq $adData )
+		{
+		        print "MATCH!\n";
+			$repeated = 1;
+		}
+	}
+
+	if ( $repeated == 0 ) {
+		push( @adssofar, $adData );
+	}
+}
+if ( $isEven ) {
+	@adchunks = split( 'width=', $adData );
+	my $firstchunk = shift @adchunks;
+	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
+}
+push( @out, $adData );
+push( @out, "</td><td>" );
+
+$repeated = 1;
+while ( $repeated == 1 ) {
+	$adData = ad( "160x600" );
+	$repeated = 0;
+
+	foreach ( @adssofar )
+	{
+		if ( $_ eq $adData )
+		{
+		        print "MATCH!\n";
+			$repeated = 1;
+		}
+	}
+
+	if ( $repeated == 0 ) {
+		push( @adssofar, $adData );
+	}
+}
+if ( $isEven ) {
+	@adchunks = split( 'width=', $adData );
+	my $firstchunk = shift @adchunks;
+	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
+}
 push( @out, $adData );
 push( @out, "</td></tr></table>" );
 
