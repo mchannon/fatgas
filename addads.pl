@@ -85,6 +85,7 @@ if ( $isEven ) {
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right"', "\n", 'width=', join( 'width=', @adchunks ) );
 }
+print "ad data 1: $adData\n";
 push( @out, $adData );
 push( @out, "</td><td>" );
 
@@ -103,7 +104,9 @@ if ( $isEven ) {
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right"', "\n", 'width=', join( 'width=', @adchunks ) );
 }
-#push( @out, $adData );
+print "ad data 2: $adData\n";
+
+push( @out, $adData );
 push( @out, "</td></tr></table>" );
 
 if ( $count < 4 )
