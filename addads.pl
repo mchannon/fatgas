@@ -73,8 +73,12 @@ push( @out, "\n/></a></td></tr><tr><td>" );
 $repeated = 1;
 while ( $repeated == 1 ) {
 	$adData = ad( "160x600" );
-	if ( index( @adssofar, $adData ) == -1 )
-	{
+
+	my @matches = grep { /$adData/ } @adssofar;
+
+	if ( @matches ) {
+	} else {
+
 		$repeated = 0;
 		push( @adssofar, $adData );
 	}
@@ -85,15 +89,19 @@ if ( $isEven ) {
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
 }
-print "ad data 1: $adData\n";
+#print "ad data 1: $adData\n";
 push( @out, $adData );
 push( @out, "</td><td>" );
 
 $repeated = 1;
 while ( $repeated == 1 ) {
 	$adData = ad( "160x600" );
-	if ( index( @adssofar, $adData ) == -1 )
-	{
+
+	my @matches = grep { /$adData/ } @adssofar;
+
+	if ( @matches ) {
+	} else {
+
 		$repeated = 0;
 		push( @adssofar, $adData );
 	}
@@ -104,7 +112,7 @@ if ( $isEven ) {
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
 }
-print "ad data 2: $adData\n";
+#print "ad data 2: $adData\n";
 
 push( @out, $adData );
 push( @out, "</td></tr></table>" );
@@ -137,9 +145,6 @@ sub ad {
 
 	open( my $ad, '<', $randAd );
 	my $adData = <$ad>;
-
-#	open( my (@adlines), '<', $randAd );
-#	my $adData = join( '', @adlines );	
 
 	chomp( $adData );
 
