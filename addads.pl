@@ -128,10 +128,13 @@ sub ad {
 
 	open( my $ad, '<', $randAd );
 	my $adData = <$ad>;
+
 #	open( my (@adlines), '<', $randAd );
 #	my $adData = join( '', @adlines );	
 
 	chomp( $adData );
+
+	close( $ad );
 
 	my @killnewlines = split( '\n', $adData );
 	$adData = join( '' , @killnewlines );
