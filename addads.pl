@@ -36,6 +36,9 @@ push( @out, $sps[ 0 ] );
 
 #insert ad code
 my @adssofar;
+my $repeated = 1;
+my $adData;
+my @adchunks;
 
 push( @out, "<table bgcolor=\"#939393\" border=\"0\" " );
 
@@ -54,7 +57,6 @@ push( @out, "align=\"right\" " );
 push( @out, "style=\"margin: -4px 0px\" " );
 }
 
-
 my $ad2 = ad( "120x600" );
 
 push( @out, "></a>");
@@ -68,16 +70,15 @@ push( @out, "style=\"margin: -4px 0px\" " );
 }
 push( @out, "\n/></a></td></tr><tr><td>" );
 
-my $repeated = 1;
-my $adData;
+$repeated = 1;
 while ( $repeated == 1 ) {
 	$adData = ad( "160x600" );
 	if ( index( @adssofar, $adData ) == -1 )
 	{
 		$repeated = 0;
+		push( @adssofar, $adData );
 	}
 }
-my @adchunks;
 
 if ( $isEven ) {
 	@adchunks = split( 'width=', $adData );
@@ -85,26 +86,25 @@ if ( $isEven ) {
 	$adData = join( '', $firstchunk, 'align="right"', "\n", 'width=', join( 'width=', @adchunks ) );
 }
 push( @out, $adData );
-
-#close( $ad );
-
-
-#push( @out, "<a href=\"http://www.dpbolvw.net/click-8524921-10833150\" target=\"_top\">" );
-#push( @out, "<img src=\"http://www.lduhtrp.net/image-8524921-10833150\" width=\"160\" height=\"600\" alt=\"\" border=\"0\"" );
-if ( $isEven ) {
-#push( @out, "align=\"right\" " );
-}
-#push( @out, "\n/></a>" );
-
-my $ad4 = ad( "300x600" );
-
 push( @out, "</td><td>" );
 
-push( @out, "<a href=\"http://www.tkqlhce.com/click-8524921-10829166\" target=\"_top\"><img src=\"http://www.awltovhc.com/image-8524921-10829166\" width=\"120\" height=\"600\" alt=\"Get results and increase sales with GetResponse\" border=\"0\" ");
-if ( $isEven ) {
-push( @out, "align=\"right\" " );
+$repeated = 1;
+while ( $repeated == 1 ) {
+	$adData = ad( "160x600" );
+	if ( index( @adssofar, $adData ) == -1 )
+	{
+		$repeated = 0;
+		push( @adssofar, $adData );
+	}
 }
-push( @out, "/></a></td></tr></table>" );
+
+if ( $isEven ) {
+	@adchunks = split( 'width=', $adData );
+	my $firstchunk = shift @adchunks;
+	$adData = join( '', $firstchunk, 'align="right"', "\n", 'width=', join( 'width=', @adchunks ) );
+}
+push( @out, $adData );
+push( @out, "</td></tr></table>" );
 
 if ( $count < 4 )
 {
