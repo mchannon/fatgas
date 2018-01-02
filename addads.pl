@@ -83,7 +83,7 @@ while ( $repeated == 1 ) {
 if ( $isEven ) {
 	@adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
-	$adData = join( '', $firstchunk, 'align="right"', "\n", 'width=', join( 'width=', @adchunks ) );
+	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
 }
 print "ad data 1: $adData\n";
 push( @out, $adData );
@@ -102,7 +102,7 @@ while ( $repeated == 1 ) {
 if ( $isEven ) {
 	@adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
-	$adData = join( '', $firstchunk, 'align="right"', "\n", 'width=', join( 'width=', @adchunks ) );
+	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
 }
 print "ad data 2: $adData\n";
 
