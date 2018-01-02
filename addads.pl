@@ -103,7 +103,7 @@ if ( $isEven ) {
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right"', "\n", 'width=', join( 'width=', @adchunks ) );
 }
-push( @out, $adData );
+#push( @out, $adData );
 push( @out, "</td></tr></table>" );
 
 if ( $count < 4 )
