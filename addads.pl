@@ -69,6 +69,10 @@ if ( $isEven ) {
 	@adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
+} else {
+	@adchunks = split( 'width=', $adData );
+	my $firstchunk = shift @adchunks;
+	$adData = join( '', $firstchunk, 'style="margin: -4px 0px" ', 'width=', join( 'width=', @adchunks ) );
 }
 push( @out, $adData );
 push( @out, "</td><td>" );
@@ -95,6 +99,10 @@ if ( $isEven ) {
 	@adchunks = split( 'width=', $adData );
 	my $firstchunk = shift @adchunks;
 	$adData = join( '', $firstchunk, 'align="right" ', 'width=', join( 'width=', @adchunks ) );
+} else {
+	@adchunks = split( 'width=', $adData );
+	my $firstchunk = shift @adchunks;
+	$adData = join( '', $firstchunk, 'style="margin: -4px 0px" ', 'width=', join( 'width=', @adchunks ) );
 }
 push( @out, $adData );
 push( @out, "</td></tr><tr><td>" );
