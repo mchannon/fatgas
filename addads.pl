@@ -65,11 +65,11 @@ push( @out, "align=\"right\" " );
 push( @out, "style=\"margin: -4px 0px\" " );
 }
 push( @out, "\n/></a></td></tr><tr><td>" );
-my $ad3 = ad( "300x250" );
+my $adData = ad( "160x600" );
 
-open( my $ad, '<', 'amaz.160x600' );
-my $adData = <$ad>;
-chomp( $adData );
+#open( my $ad, '<', 'amaz.160x600' );
+#my $adData = <$ad>;
+#chomp( $adData );
 #chop( $adData );
 my @adchunks;
 
@@ -80,7 +80,7 @@ if ( $isEven ) {
 }
 push( @out, $adData );
 
-close( $ad );
+#close( $ad );
 
 
 #push( @out, "<a href=\"http://www.dpbolvw.net/click-8524921-10833150\" target=\"_top\">" );
@@ -117,15 +117,18 @@ close $fileh;
 
 
 sub ad {
-	($adSize) = @_;
+	my ($adSize) = @_;
 	print "Ad Size: $adSize, ";
 	
-	$adFiles = (<*.$adSize>);
-#	local $randno = (rand @adFiles);
-#	$randAd = $adFiles[rand @adFiles];
+	my (@adFiles) = (<*.$adSize>);
+	my $randno = (rand @adFiles);
+	$randAd = $adFiles[rand @adFiles];
 
-#	print "Ad File: $randAd\n";
+	print "Ad File: $randAd\n";
 
-#	return $randAd;
-	return "";
+	open( my $ad, '<', $randAd );
+	my $adData = <$ad>;
+	chomp( $adData );
+
+	return $adData;
 }
