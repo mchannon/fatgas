@@ -74,7 +74,7 @@ $repeated = 1;
 while ( $repeated == 1 ) {
 	$adData = ad( "160x600" );
 
-	my @matches = grep { /$adData/ } @adssofar;
+	my @matches = grep { /^{$adData}/ } @adssofar;
 
 	if ( @matches ) {
 	} else {
@@ -97,7 +97,7 @@ $repeated = 1;
 while ( $repeated == 1 ) {
 	$adData = ad( "160x600" );
 
-	my @matches = grep { /$adData/ } @adssofar;
+	my @matches = grep { /^{$adData}/ } @adssofar;
 
 	if ( @matches ) {
 	} else {
