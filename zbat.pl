@@ -45,6 +45,8 @@ system "perl numberize.pl index13.page";
 system "perl numberize.pl index14.page";
 system "perl numberize.pl index15.page";
 
+system "perl ganalytics.pl";
+
 foreach (@files) {
 	system "perl addads.pl $_";
 }
