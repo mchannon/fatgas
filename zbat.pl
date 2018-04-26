@@ -47,9 +47,9 @@ system "perl numberize.pl index15.page";
 
 system "perl ganalytics.pl";
 
-foreach (@files) {
-	system "perl addads.pl $_";
-}
+#foreach (@files) {
+#	system "perl addads.pl $_";
+#}
 
 #open ( my $file, "<", "index.css" ) || die "index not found";
 #my @lines = <$file>;
